@@ -1,2 +1,11 @@
-# rust_guide
-An introduction to rust
+# Rust
+
+## Installation
+
+https://github.com/JuliaLang/julia
+
+## Initializing project
+
+## Run main
+
+## Optimization flags
