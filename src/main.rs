@@ -1,17 +1,13 @@
-use rand::{rngs::StdRng, seq::SliceRandom, SeedableRng};
+mod sampler;
 
-fn insertion_sort(arr: &mut [u32]) {
-    // Put your code here...
+use sampler::State;
+
+fn main() {
+    const N_STEP: usize = 1000;
+    const N_DIM: usize = 2;
+    let mut state = State::<N_DIM>::new(0xdeadbeef);
+    for _ in 0..N_STEP {
+        state.take_step();
+        println!("{:?}, {:?}", state.arr[0], state.arr[1]);
+    }
 }
-
-#[test]
-fn test_insertion_sort() {
-    let state = 0xdeadbeef;
-    let mut vec: Vec<u32> = (1..100).collect();
-    let mut rng = <StdRng as SeedableRng>::seed_from_u64(state);
-    vec.shuffle(&mut rng);
-    insertion_sort(&mut vec);
-    assert_eq!(vec, (1..100).collect::<Vec<u32>>());
-}
-
-fn main() {}
